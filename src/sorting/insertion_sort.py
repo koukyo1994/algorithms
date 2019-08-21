@@ -1,8 +1,10 @@
 import copy
 
 
-def insertion_sort(A: list):
+def insertion_sort(A: list, inplace: bool = False):
     A_ = copy.deepcopy(A)
+    if inplace:
+        A_ = A
     for j in range(1, len(A)):
         key = A[j]
         i = j - 1
@@ -16,3 +18,7 @@ def insertion_sort(A: list):
 if __name__ == '__main__':
     A = [5, 2, 4, 6, 1, 3]
     print(insertion_sort(A))
+    print(A)
+
+    print(insertion_sort(A, inplace=True))
+    print(A)
